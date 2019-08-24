@@ -1,4 +1,4 @@
-# HapiJS-Redis
+# HapiJS Redis API
 
 A mini todo app API done in HapiJS
 
