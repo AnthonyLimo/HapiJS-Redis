@@ -12,7 +12,7 @@ module.exports = {
             }
         },
         description: "Add item",
-        tags: ['api']
+        tags: ['api',"post"]
     },
     handler: async (request, h) => {
         let {sub: redispath} = request.auth.credentials;

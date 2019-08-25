@@ -25,13 +25,16 @@ module.exports = {
         let {index: redisindex} = request.payload;
         let {redis} = request.server.app;
 
-        //Find specified index and pop it
+        //Find specified index
+        //With Redis, you overwrite it and then delete the key value pair
         try {
             await redis.lsetAsync(redispath, redisindex, "__DELETE__");
             await redis.lremAsync(redispath, 1, "__DELETE__");
 
+            //Respond with OK
             return h.response({}).code(200);
         } catch(e) {
+            //Tell us if something has gone wrong
             return Boom.badImplementation(e);
         }
     }
